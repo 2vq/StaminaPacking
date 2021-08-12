@@ -21,9 +21,8 @@ os.system("title Anti Afk ")
 async def on_connect():
     print(f'''{Fore.CYAN}
                                                        AntiAfk
-                                                    discord.gg/ud
-                                                Made by godfather#0001
-                                             https://github.com/drangheta
+                                                Made by sword#0004
+                                             https://github.com/hellahigh
                                              Logged in as: {client.user}
 ''')
 
