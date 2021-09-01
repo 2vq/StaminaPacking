@@ -51,7 +51,7 @@ async def autoafk(ctx, user:discord.User = None):
     await ctx.send("10")
 
 @client.command()
-async def antiafk(ctx):
+async def antiafk(ctx): # just a troll cmd if u wanna use this for a method then use it dnc not my problem xd
     await ctx.message.delete()
     em = discord.Embed(title = "Anti-Afk", description = "Turned on Anti-Afk with the reply of ``*zzz im asleep slumberrr*`` and the delay of ``*0 seconds!*``")
     await ctx.send(embed = em)
