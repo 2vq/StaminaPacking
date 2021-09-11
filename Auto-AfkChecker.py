@@ -25,6 +25,14 @@ async def on_connect():
                                           {Fore.GREEN}       Current Prefix: {prefix}
     ''')
 
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        print(f'The command `{ctx.message.content}` is not valid.')
+        print(f'{Fore.LIGHTBLACK_EX}[{Fore.YELLOW}!{Fore.LIGHTBLACK_EX}]{Fore.LIGHTBLACK_EX} Command not found: {Fore.YELLOW}{ctx.message.content}')
+    pass
+
+    
 @client.command()
 async def autoafk(ctx, user:discord.User = None):
     await ctx.message.delete()
