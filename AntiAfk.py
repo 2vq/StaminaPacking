@@ -11,10 +11,16 @@ from colorama import Fore
 
 client = discord.Client()
 
-with open('./config.json')as f:
-  config = json.load(f)
+# IGNORE WHATS UNDER RETARDS DONT UNDERSTAND SHIT #
 
-token = config.get('token')
+#with open('./config.json')as f:
+  #config = json.load(f)
+
+#token = config.get('token')
+
+# IGNORE WHATS ABOVE RETARDS DONT UNDERSTAND SHIT #
+
+token = 'enter token here'
 
 os.system("title Anti Afk ")
 @client.event
