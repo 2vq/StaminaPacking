@@ -7,7 +7,7 @@ import random
 from colorama import Fore
 from discord.ext import commands
 
-token = ''
+token = 'mfa._dFWji8pOlmxWL_U8EoUGifA7bH_kUWj04gZI0ky32O2AUqEIJ-a18_Gtr4lRMatdIGj322A9P44xeeZqX9f'
 prefix = ','
 
 client = commands.Bot(command_prefix = prefix, case_insensitive = True, self_bot = True)
@@ -20,7 +20,8 @@ async def on_connect():
                                           Currently Connected To: {client.user}
                                           {Fore.GREEN}       Current Prefix: {prefix}
     ''')
-# thanks kyicks l o l
+
+ # thanks kyicks l o l
 @client.command()
 async def afkcheck(ctx, limit):
     global stop_afkcheck
@@ -29,15 +30,13 @@ async def afkcheck(ctx, limit):
     try:
         limit = int(limit)
     except:
-        print("ERROR INVALID INT!")
+        print(f'{Fore.RED}ERROR {Fore.LIGHTBLACK_EX}INVALID INT!')
         return
 
     for i in range(int(limit)):
         if not stop_afkcheck:
             await ctx.send(f"{limit}")
             limit -= 1 
-            math = f"0.{random.randint(0,2)}"
-            time.sleep(float(math))
         else:
             break
 
