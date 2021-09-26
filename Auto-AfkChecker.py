@@ -1,18 +1,14 @@
-# splrs ducking to run my stamina on friday when i dont have school xd
 import discord
 import json
 import colorama
 import os
 import time
+import random
 from colorama import Fore
 from discord.ext import commands
 
-
-with open('config.json') as f:
-    config = json.load(f)
-
-token = config.get('token')
-prefix = config.get('prefix')
+token = ''
+prefix = ','
 
 client = commands.Bot(command_prefix = prefix, case_insensitive = True, self_bot = True)
 
@@ -24,42 +20,29 @@ async def on_connect():
                                           Currently Connected To: {client.user}
                                           {Fore.GREEN}       Current Prefix: {prefix}
     ''')
-
-@client.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandNotFound):
-        print(f'The command `{ctx.message.content}` is not valid.')
-        print(f'{Fore.LIGHTBLACK_EX}[{Fore.YELLOW}!{Fore.LIGHTBLACK_EX}]{Fore.LIGHTBLACK_EX} Command not found: {Fore.YELLOW}{ctx.message.content}')
-    pass
-
-    
+# thanks kyicks l o l
 @client.command()
-async def autoafk(ctx, user:discord.User = None):
+async def afkcheck(ctx, limit):
+    global stop_afkcheck
     await ctx.message.delete()
-    if user is None:
-        print(f'''{Fore.RED} [ERROR] No one was Pinged!''')
-    await ctx.send(f'afk check {user.mention} 1')
-    time.sleep(0)
-    await ctx.send("2")
-    time.sleep(0)
-    await ctx.send("3")
-    time.sleep(0)
-    await ctx.send("4")
-    time.sleep(0)
-    await ctx.send("5")
-    time.sleep(0)
-    await ctx.send("6")
-    time.sleep(0)
-    await ctx.send("7")
-    time.sleep(0)
-    await ctx.send("8")
-    time.sleep(0)
-    await ctx.send("9")
-    time.sleep(0)
-    await ctx.send("10")
+    stop_afkcheck = False
+    try:
+        limit = int(limit)
+    except:
+        print("ERROR INVALID INT!")
+        return
+
+    for i in range(int(limit)):
+        if not stop_afkcheck:
+            await ctx.send(f"{limit}")
+            limit -= 1 
+            math = f"0.{random.randint(0,2)}"
+            time.sleep(float(math))
+        else:
+            break
 
 @client.command()
-async def antiafk(ctx): # just a troll cmd if u wanna use this for a method then use it dnc not my problem xd
+async def antiafk(ctx):
     await ctx.message.delete()
     em = discord.Embed(title = "Anti-Afk", description = "Turned on Anti-Afk with the reply of ``*zzz im asleep slumberrr*`` and the delay of ``*0 seconds!*``")
     await ctx.send(embed = em)
